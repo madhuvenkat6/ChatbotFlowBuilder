@@ -1,6 +1,8 @@
 import React from "react";
 import { BiMessageRoundedDetail } from "react-icons/bi";
 
+import './nodesPanel.scss'
+
 function NodesPanel({ addNode }) {
   const onDragStart = (event, nodeType) => {
     event.dataTransfer.setData("application/reactflow", nodeType);
@@ -8,26 +10,14 @@ function NodesPanel({ addNode }) {
   };
 
   return (
-    <div style={{ padding: "25px" }}>
+    <div className="nodes-panel-container">
       <div
         draggable
         onDragStart={(event) => onDragStart(event, "input")}
-        style={{
-          background: "white",
-          border: "1px solid #7a8bee",
-          borderRadius: "5px",
-          height: 70,
-          width: 150,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
+        className="draggable-node"
       >
-        <BiMessageRoundedDetail
-          style={{ height: 25, width: 25, color: "#7a8bee" }}
-        />
-        <div style={{ color: "#7a8bee" }}>Message</div>
+        <BiMessageRoundedDetail className="draggable-icon" />
+        <div className="draggable-text">Message</div>
       </div>
     </div>
   );

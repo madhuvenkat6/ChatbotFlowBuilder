@@ -1,6 +1,6 @@
 import ChatbotFlowBuilder from "./ChatbotFlowBuilder/ChatbotFlowBuilder";
 import FlowBuilderProvider from "./ChatbotFlowBuilder/context/contextProvider";
-import "./App.css";
+import "./App.scss";
 
 function App() {
   return (

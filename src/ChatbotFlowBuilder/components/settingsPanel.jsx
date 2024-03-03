@@ -2,22 +2,17 @@ import React, { useContext } from "react";
 import { IoArrowBackOutline } from "react-icons/io5";
 import FlowBuilderContext from "../context/context";
 
+import './settingsPanel.scss'
+
 function SettingsPanel({ switchToNodesPanel }) {
   const { activeNode, setActiveNode, cleaActiveNode } =
     useContext(FlowBuilderContext);
 
   return (
-    <div>
-      <div
-        style={{
-          height: 40,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+    <div className="settings-panel-container">
+      <div className="header-section">
         <button
-          style={{ border: "0px", background: "white" }}
+          className="back-button"
           onClick={() => {
             cleaActiveNode();
             switchToNodesPanel();
@@ -25,33 +20,15 @@ function SettingsPanel({ switchToNodesPanel }) {
         >
           <IoArrowBackOutline />
         </button>
-        <div style={{ width: "85%" }}>
+        <div className="content-wrapper">
           <div>Message</div>
         </div>
       </div>
 
-      <div
-        style={{
-          border: "1px solid #eeeeee",
-          minHeight: 120,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <div
-          style={{
-            width: "90%",
-            textAlign: "left",
-            color: "gray",
-            marginBottom: "8px",
-          }}
-        >
-          Text
-        </div>
+      <div className="main-content-section">
+        <div className="text-label">Text</div>
         <textarea
-          style={{ width: "90%", minHeight: 50, borderColor: "#eeeeee" }}
+          className="textarea-input"
           value={activeNode?.data?.label}
           onChange={(event) => {
             let nodeData = activeNode;

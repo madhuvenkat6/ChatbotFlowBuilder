@@ -4,16 +4,14 @@ import { BiMessageRoundedDetail } from "react-icons/bi";
 import { RiWhatsappFill } from "react-icons/ri";
 
 import FlowBuilderContext from "../context/context";
-import "./messageNode.css";
-
+import "./messageNode.scss";
 
 function MessageNode({ id, data, isConnectable }) {
   const { activeNode } = useContext(FlowBuilderContext);
 
   return (
     <div
-      className="nodetext-updater-div"
-      style={{ borderColor: id === activeNode.id ? "blue" : "" }}
+      className={`nodetext-updater-div ${id === activeNode.id ? "active" : ""}`}
     >
       <Handle
         type="target"
@@ -21,58 +19,20 @@ function MessageNode({ id, data, isConnectable }) {
         isConnectable={isConnectable}
       />
 
-      <div style={{ width: 200, height: "100%" }}>
-        <div
-          style={{
-            height: "35%",
-            background: "#b2efe4",
-            borderTopRightRadius: "5px",
-            borderTopLeftRadius: "5px",
-            display: "flex",
-            padding: "0 8px",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <BiMessageRoundedDetail style={{ height: 12, width: 12 }} />
+      <div className="main-content-section">
+        <div className="top-section">
+          <div className="icon-and-text">
+            <div className="message-icon">
+              <BiMessageRoundedDetail className="message-icon-inner" />
             </div>
-            <div style={{ fontSize: 10, fontWeight: "bold", marginLeft: 5 }}>
-              Send Message
-            </div>
+            <div className="send-message-text">Send Message</div>
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "white",
-              width: "12px",
-              height: "12px",
-              borderRadius: "6px",
-            }}
-          >
-            <RiWhatsappFill style={{ height: 8, width: 8, color: "green" }} />
+          <div className="whatsapp-icon">
+            <RiWhatsappFill className="whatsapp-icon-inner" />
           </div>
         </div>
-        <div
-          style={{
-            height: "65%",
-            borderBottomLeftRadius: "10px",
-            borderBottomRightRadius: "5px",
-            display: "flex",
-            alignItems: "center",
-            padding: "0 8px",
-          }}
-        >
-          <div style={{ fontSize: 12 }}>{data.label}</div>
+        <div className="bottom-section">
+          <div className="label-text">{data.label}</div>
         </div>
       </div>
 

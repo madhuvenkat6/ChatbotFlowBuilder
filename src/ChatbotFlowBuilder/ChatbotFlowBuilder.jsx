@@ -9,8 +9,7 @@ import MessageNode from "./components/messageNode";
 import NodesPanel from "./components/nodesPanel";
 import SettingsPanel from "./components/settingsPanel";
 
-import "./flowBuilder.header.css";
-import "./flowBuilder.content.css";
+import "./ChatbotFlowBuilder.scss";
 
 const supportedNodeTypes = { textUpdater: MessageNode };
 
@@ -115,9 +114,9 @@ function ChatbotFlowBuilder() {
   );
 
   return (
-    <div className="outer-container">
+    <div className="flowbuilder-container">
       {headerJSX}
-      <div className="main-content-section">
+      <div className="flowbuilder-content-section">
         <div className="reactflow-wrapper" ref={reactFlowWrapper}>
           <ReactFlow
             nodes={nodes}
