@@ -12,7 +12,7 @@ function MessageNode({ id, data, isConnectable }) {
 
   return (
     <div
-      className="text-updater-node"
+      className="nodetext-updater-div"
       style={{ borderColor: id === activeNode.id ? "blue" : "" }}
     >
       <Handle

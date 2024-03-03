@@ -9,6 +9,9 @@ import MessageNode from "./components/messageNode";
 import NodesPanel from "./components/nodesPanel";
 import SettingsPanel from "./components/settingsPanel";
 
+import "./flowBuilder.header.css";
+import "./flowBuilder.content.css";
+
 const supportedNodeTypes = { textUpdater: MessageNode };
 
 function ChatbotFlowBuilder() {
@@ -95,84 +98,27 @@ function ChatbotFlowBuilder() {
   };
 
   const headerJSX = (
-    <div
-      style={{
-        height: "5%",
-        display: "flex",
-        justifyContent: "flex-end",
-        padding: "0px 30px",
-        alignItems: "center",
-        background: "#f4f3f2",
-      }}
-    >
-      <div
-        style={{
-          width: "90%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <div
-          id="flowInvalid"
-          style={{
-            background: "#fbcccb",
-            width: 110,
-            fontSize: 12,
-            height: 30,
-            borderRadius: "5px",
-            display: "none",
-            alignItems: "center",
-            justifyContent: "center",
-            fontWeight: "bold",
-          }}
-        >
+    <div className="header-container">
+      <div className="inner-container">
+        <div id="flowInvalid" className="message-container">
           cannot save flow
         </div>
-        <div
-          id="flowValid"
-          style={{
-            background: "green",
-            width: 110,
-            fontSize: 12,
-            height: 30,
-            borderRadius: "5px",
-            display: "none",
-            alignItems: "center",
-            justifyContent: "center",
-            fontWeight: "bold",
-          }}
-        >
+        <div id="flowValid" className="message-container">
           Saved
         </div>
       </div>
 
-      <button
-        onClick={() => validateTheNodes()}
-        style={{
-          background: "white",
-          width: 100,
-          fontSize: 12,
-          height: 30,
-          border: "1px solid gray",
-          borderRadius: "5px",
-          fontWeight: "bold",
-        }}
-      >
+      <button onClick={() => validateTheNodes()} className="save-button">
         Save Changes
       </button>
     </div>
   );
 
   return (
-    <div style={{ height: "100%" }}>
+    <div className="outer-container">
       {headerJSX}
-      <div style={{ height: "95%", display: "flex" }}>
-        <div
-          className="reactflow-wrapper"
-          ref={reactFlowWrapper}
-          style={{ width: "75%", height: "100%" }}
-        >
+      <div className="main-content-section">
+        <div className="reactflow-wrapper" ref={reactFlowWrapper}>
           <ReactFlow
             nodes={nodes}
             edges={edges}
@@ -187,9 +133,7 @@ function ChatbotFlowBuilder() {
             fitView
           />
         </div>
-        <div
-          style={{ width: "25%", border: "1px solid #eeeeee", height: "100%" }}
-        >
+        <div className="panel-container">
           {isNodePanelActive ? (
             <NodesPanel addNode={addNode} />
           ) : (

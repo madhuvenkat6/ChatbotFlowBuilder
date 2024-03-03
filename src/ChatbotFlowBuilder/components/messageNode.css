@@ -1,10 +1,10 @@
-.text-updater-node {
+.nodetext-updater-div {
   height: 50px;
   border: 1px solid #eee;
   border-radius: 5px;
 }
 
-.text-updater-node label {
+.nodetext-updater-div label {
   display: block;
   color: #777;
   font-size: 12px;
